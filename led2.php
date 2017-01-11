@@ -4,11 +4,10 @@
 <?php
 define('$dirname', 'led-pictures');
 define('$filename', 'led.log');
-define('$fam', '');
 ?>
-<form action = “led2.php” method = “get”>
-<input type = “text” name =“fam“><br/>
-<input type = “submit” value =“送信/“>
+<form action = led2.php method = get >
+<input type = text name = fam ><br/>
+<input type = submit value = 送信 >
 <? php
 resource fam_open ([ string $appname ] );
 
