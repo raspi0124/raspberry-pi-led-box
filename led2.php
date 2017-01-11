@@ -4,57 +4,21 @@
 <?php
 define('$dirname', 'led-pictures');
 define('$filename', 'led.log');
-// データを書き込むファイル
-define('DATA_FILE', 'led.log');
+define('$fam', '');
+?>
+<form action = “led2.php” method = “get”>
+<input type = “text” name =“fam“><br/>
+<input type = “submit” value =“送信/“>
+<? php
+resource fam_open ([ string $appname ] );
 
-/**
- * データを取得
- */
-function getData() {
-	return file_get_contents(DATA_FILE);
+resource fam_monitor_directory ( resource $fam , string $dirname )
+	if ($fam = FAMCreated) {
+        	echo "test - fam created";
+	}elseif($fam = False){
+    		echo "test - an error occused";
+	}else {
+    		echo "something happen";
 }
 
-/**
- * 更新チェック
- *
- * 対象データに変化が無ければループし続ける。
- * 変化が有れば新しいデータ追加した全てのデータを返す。
- */
-function getUpdatedData() {
-	$data = getData();
-	$temp = $data;
-	while ($temp === $data) {
-		$temp = getData();
-		sleep(1);
-	}
-	return $temp;
-}
-
-/**
- * データ追加
- *
- * 新しいデータを追加して全てのデータを返す。
- */
-function pushData($data) {
-	if (!empty($data)) {
-		$data = 1
-		file_put_contents(DATA_FILE, $data, FILE_APPEND|LOCK_EX);
-	}
-	return getData();
-}
-
-if (isset($_GET['mode'])) {
-	// モードの振り分け
-	switch ($_GET['mode']) {
-		// データを取得
-		case 'view':
-			$data = getData();
-			break;
-
-		// 更新チェック
-		case 'check':
-			$data = getUpdatedData();
-			break;
-	}
-}
-
+	?>
