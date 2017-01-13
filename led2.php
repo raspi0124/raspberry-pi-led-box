@@ -8,9 +8,12 @@ resource fam_open ([ string $appname ] );
 
 resource fam_monitor_directory ( resource $fam , string images )
 	if ($fam = FAMCreated) {
-        	echo "New Image ware created.";
+        	file_put_contents('/sys/class/gpio/export', 25);
+		file_put_contents('/sys/class/gpio/gpio25/direction', 'out');
+		file_put_contents('/sys/class/gpio/gpio25/value', 1);
+		echo "Led has to be lighting up now!";
 	}elseif($fam = False){
-    		echo "Nope,There is no images.";
+    		echo "Nope,There is no moving.";
 	}else {
     		echo "something wrong happen.it's might be error.";
 }
