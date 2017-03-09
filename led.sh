@@ -1,3 +1,3 @@
 #!/bin/bash
 
-php led2.php
+sudo php led2.php
